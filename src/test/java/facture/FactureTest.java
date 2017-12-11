@@ -36,7 +36,8 @@ public class FactureTest {
 	@Test
 	public void testCatalogue() {
 		assertSame(iPad, catalogue.findByCode("ipad"));
-		assertSame(disk, catalogue.findByCode("disk"));		
+		assertSame(disk, catalogue.findByCode("disk"));
+                assertSame(null, catalogue.findByCode("casque"));
 	}
 	
 	@Test
@@ -47,4 +48,25 @@ public class FactureTest {
 		
 
 	}
+        
+        @Test
+        public void testArticle(){
+            iPad.setCode("iPad ");
+            assertEquals("iPad ", iPad.getCode());
+            iPad.setPrix(100);
+            assertEquals(100, iPad.getPrix(), 0.01f);
+            iPad.setNom("IPad 2");
+            assertEquals("IPad 2", iPad.getNom());
+        }
+        
+        @Test
+        public void testClient (){
+            bastide.setName("Rémi Bastide");
+            assertEquals("Rémi Bastide", bastide.getName());
+            bastide.setAddress("Rue du Bac, Castres");
+            assertEquals ("Rue du Bac, Castres", bastide.getAddress() );
+        }
+        
+        
+        
 }
